@@ -2,16 +2,9 @@
 
 Pequeño challenge de Codewars
 
-┌───┬───┬───┐
-│ 1 │ 2 │ 3 │
-├───┼───┼───┤
-│ 4 │ 5 │ 6 │
-├───┼───┼───┤
-│ 7 │ 8 │ 9 │
-└───┼───┼───┘
-    │ 0 │
-    └───┘
-    
+![imagen](https://user-images.githubusercontent.com/48731203/157719657-7f278730-ff7e-4e6c-b749-dcbb40e44a66.png)
+
+
 Se tiene ese tablero, donde se ingresa una contraseña.
 Alguien observa a otro ingresar, y se fija en los pines ingresados.
 Pero esta observacion no es exacta, ya que el pin ingresado pudo haber sido el observado o uno de los adyacentes.

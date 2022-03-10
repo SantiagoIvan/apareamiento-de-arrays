@@ -21,13 +21,6 @@ def get_pins(observed):
     # Teniendo ese array, puedo mapearlo para tener n arrays, siendo n la cantidad de pins vistos
     # Luego tendria que hacer combinatoria, con todas las variaciones posibles
     
-    arr_of_adjacents_pins = []
-    for i in range(len(observed)):
-        possible_pins = get_possible_pins(observed[i])
-        arr_of_adjacents_pins.append(possible_pins)
-    # arr_of_adjacents_pins es un array que contiene, por cada pin observado, una lista
-    # de todos los posibles pins. Es decir, es un array de arrays.
-    
     # Por teoria de combinatoria, se que si tengo un conjunto de elementos K, con k-cantidad de elementos,
     # y n lugares disponibles, las combinaciones posibles que tengo con repeticion es de k ** n
     # siendo que puedo meter en cada lugar, a un elemento del conjunto K
@@ -51,13 +44,13 @@ def get_pins(observed):
     print("Pin observer ",observed)
     while i<len(observed):
         if i == 0:
-            combinations_arr += arr_of_adjacents_pins[i]
+            combinations_arr += variations[observed[i]]
             final_array = combinations_arr
         else:
             # Combino los que ya existen con los nuevos
             final_array = []
             for pin in combinations_arr:
-                for another_pin in arr_of_adjacents_pins[i]:
+                for another_pin in variations[observed[i]]:
                     # mezclo una combinacion parcial con un nuevo pin
                     final_array.append(pin+another_pin)
         i +=1
@@ -65,7 +58,4 @@ def get_pins(observed):
         # Esto lo hago para que combinations_arr contenga los resultados hasta el momento, por si es necesario
         # otra iteracion. Si no hay mas iteraciones, se retorna final_array. Si hay mas iteraciones
         # utilizo el array de combinaciones, para calcular las nuevas e ir insertandolas en un nuevo array.
-    
-    print("Final array")
-    print(final_array)
     return sorted(final_array)
